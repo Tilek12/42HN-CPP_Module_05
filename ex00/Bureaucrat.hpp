@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    Bureaucrat.hpp                                    :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:51:37 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/12 09:10:31 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/12 09:15:00 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ private:
 public:
 
 	class	GradeTooHighException : public std::exception {
-
 	public:
 		const char*	what() const noexcept override {
 			return "Grade is too high!";
@@ -36,7 +35,6 @@ public:
 	};
 
 	class	GradeTooLowException : public std::exception {
-
 	public:
 		const char*	what() const noexcept override {
 			return "Grade is too low!";
