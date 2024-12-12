@@ -6,16 +6,16 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:51:37 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/12 10:03:31 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/12 14:44:02 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
-# include <string>
-# include <iostream>
-# include <stdexcept>
+#include <string>
+#include <iostream>
+#include <stdexcept>
 
 /*---------------------------*/
 /*  Define Bureaucrat class  */
