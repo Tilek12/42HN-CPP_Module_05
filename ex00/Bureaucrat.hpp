@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:51:37 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/12 09:15:00 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/12 10:03:31 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <iostream>
 # include <stdexcept>
 
+/*---------------------------*/
+/*  Define Bureaucrat class  */
+/*---------------------------*/
 class	Bureaucrat {
 
 private:
@@ -53,6 +56,9 @@ public:
 
 };
 
+/*------------------------------------------*/
+/*  Overload of the insertion («) operator  */
+/*------------------------------------------*/
 std::ostream& operator<<( std::ostream& os, const Bureaucrat& bureaucrat );
 
 #endif
