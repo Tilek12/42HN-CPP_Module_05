@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:43:04 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/14 16:14:42 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/14 17:02:35 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ private:
 	bool				_isSigned;
 	const int			_gradeToSign;
 	const int			_gradeToExecute;
-
 
 public:
 

@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:12:36 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/14 13:56:08 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/14 17:46:01 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,20 +85,37 @@ void	Bureaucrat::decrementGrade( void ) {
 /*----------------------------------------------------*/
 std::ostream& operator<<( std::ostream& os, const Bureaucrat& bureaucrat ) {
 
-	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+	os << YELLOW << bureaucrat.getName() << RESET
+	   << ", bureaucrat grade "
+	   << CYAN << bureaucrat.getGrade() << RESET;
 	return os;
 }
 
+/*----------------------------*/
+/*  Define signForm function  */
+/*----------------------------*/
 void	Bureaucrat::signForm( Form& form ) const {
 
-	try
-	{
-		form.beSigned( *this );
-		std::cout << _name << " signed " << form.getName() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	if ( form.getIsSigned() ) {
+		std::cout << PURPLE
+				  << form.getName() << " is already signed."
+				  << RESET << std::endl;
+		return;
 	}
 
+	try {
+		form.beSigned( *this );
+		std::cout << YELLOW << _name << RESET
+				  << GREEN << " signed " << RESET
+				  << BLUE << form.getName() << RESET
+				  << std::endl;
+	}
+	catch(const std::exception& e) {
+		std::cout << YELLOW << _name << RESET
+				  << PURPLE << " couldn't sign " << RESET
+				  << BLUE << form.getName() << RESET
+				  << " because "
+				  << RED << e.what() << RESET
+				  << std::endl;
+	}
 }

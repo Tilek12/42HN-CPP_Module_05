@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:12:30 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/14 16:20:51 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/14 17:50:26 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Form::Form( const std::string& name, int gradeToSign, int gradeToExecute ) : _na
 
 	if ( _gradeToSign < 1 || _gradeToExecute < 1 )
 		throw GradeTooHighException();
-	else if ( _gradeToExecute > 150 || gradeToExecute > 150 )
+	else if ( _gradeToSign > 150 || gradeToExecute > 150 )
 		throw GradeTooLowException();
 }
 
@@ -60,10 +60,13 @@ void	Form::beSigned( const Bureaucrat& bureaucrat ) {
 
 std::ostream& operator<<( std::ostream& os, const Form& form ) {
 
-	os << form.getName() << " is "
-		<< (form.getIsSigned() ? "signed" : "NOT signed" )
-		<< ". Grade to sign: " << form.getGradeToSign()
-		<< ". Grade to execute: " << form.getGradeToExecute();
+	os << BLUE << form.getName() << RESET
+	   << " is "
+	   << B_WHITE << (form.getIsSigned() ? "signed" : "NOT signed" ) << RESET
+	   << ". Grade to sign: "
+	   << CYAN << form.getGradeToSign() << RESET
+	   << ". Grade to execute: "
+	   << CYAN << form.getGradeToExecute() << RESET;
 
 	return os;
 }
