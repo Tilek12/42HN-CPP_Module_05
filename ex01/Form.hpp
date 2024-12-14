@@ -6,14 +6,17 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:43:04 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/14 13:46:37 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/14 16:14:42 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include "Bureaucrat.hpp"
+#include <string>
+#include <stdexcept>
+
+class Bureaucrat;
 
 class	Form {
 

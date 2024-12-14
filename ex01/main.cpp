@@ -6,11 +6,12 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:44:51 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/12 10:01:39 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/14 16:05:55 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 /*-----------------*/
 /*  Main function  */
@@ -19,33 +20,18 @@ int	main ( void ) {
 
 	try
 	{
-		Bureaucrat	bureaucrat( "Alice", 5 );
-		std::cout << bureaucrat << std::endl;
+		Bureaucrat	bureaucratAlice( "Alice", 50 );
+		Form form( "Form", 40, 30 );
 
-		for ( int i = 0; i < 5; i++ ) {
-			bureaucrat.incrementGrade();
-			std::cout << bureaucrat << std::endl;
-		}
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+		std::cout << bureaucratAlice << std::endl;
+		std::cout << form << std::endl;
 
-	try
-	{
-		Bureaucrat	bureaucrat( "Bob", 151 );
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+		bureaucratAlice.signForm( form );
 
-	try
-	{
-		Bureaucrat	bureaucrat( "Charlie", 150 );
-		std::cout << bureaucrat << std::endl;
-		bureaucrat.decrementGrade();
+		Bureaucrat	bureaucratBob( "Bob", 30 );
+		bureaucratBob.signForm( form );
+
+		std::cout << form << std::endl;
 	}
 	catch(const std::exception& e)
 	{
