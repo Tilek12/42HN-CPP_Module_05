@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:51:37 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/12 14:44:02 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/14 13:50:46 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 #include <stdexcept>
+#include "Form.hpp"
 
 /*---------------------------*/
 /*  Define Bureaucrat class  */
@@ -49,10 +50,11 @@ public:
 	Bureaucrat& operator=( const Bureaucrat& other );
 	~Bureaucrat( void );
 
-	std::string	getName( void ) const;
-	int			getGrade( void ) const;
-	void		incrementGrade( void );
-	void		decrementGrade( void );
+	const std::string&	getName( void ) const;
+	int					getGrade( void ) const;
+	void				incrementGrade( void );
+	void				decrementGrade( void );
+	void				signForm( Form& form ) const;
 
 };
 

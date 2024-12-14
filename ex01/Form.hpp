@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:43:04 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/12 15:09:36 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/14 13:46:37 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class	Form {
 private:
 
 	const std::string	_name;
+	bool				_isSigned;
 	const int			_gradeToSign;
 	const int			_gradeToExecute;
-	bool				_isSigned;
 
 
 public:
@@ -46,12 +46,12 @@ public:
 	Form&	operator=( const Form& other );
 	~Form( void );
 
-	std::string	getName( void ) const;
-	int			getGrade( void ) const;
-	int			getGrateToSign( void ) const;
-	int			getGrateToExecute( void ) const;
+	const std::string&	getName( void ) const;
+	bool				getIsSigned( void ) const;
+	int					getGradeToSign( void ) const;
+	int					getGradeToExecute( void ) const;
 
-	void	BeSigned( const Bureaucrat& bureaucrat );
+	void				beSigned( const Bureaucrat& bureaucrat );
 
 };
 

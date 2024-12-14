@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:12:36 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/12 10:08:04 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/14 13:56:08 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*  Bureaucrat Class constructor  */
 /*--------------------------------*/
 Bureaucrat::Bureaucrat( const std::string& name, int grade ) : _name( name ),
-															  _grade( grade ) {
+															   _grade( grade ) {
 
 	if ( _grade < 1 )
 		throw GradeTooHighException();
@@ -51,7 +51,7 @@ Bureaucrat::~Bureaucrat( void ) {}
 /*---------------------------*/
 /*  Define getName function  */
 /*---------------------------*/
-std::string	Bureaucrat::getName( void ) const { return _name; }
+const std::string&	Bureaucrat::getName( void ) const { return _name; }
 
 /*----------------------------*/
 /*  Define getGrade function  */
@@ -87,4 +87,18 @@ std::ostream& operator<<( std::ostream& os, const Bureaucrat& bureaucrat ) {
 
 	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
 	return os;
+}
+
+void	Bureaucrat::signForm( Form& form ) const {
+
+	try
+	{
+		form.beSigned( *this );
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+
 }
