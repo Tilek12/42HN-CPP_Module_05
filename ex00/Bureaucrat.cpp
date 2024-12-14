@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:12:36 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/12 10:08:04 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/14 16:44:28 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*  Bureaucrat Class constructor  */
 /*--------------------------------*/
 Bureaucrat::Bureaucrat( const std::string& name, int grade ) : _name( name ),
-															  _grade( grade ) {
+															   _grade( grade ) {
 
 	if ( _grade < 1 )
 		throw GradeTooHighException();
@@ -85,6 +85,8 @@ void	Bureaucrat::decrementGrade( void ) {
 /*----------------------------------------------------*/
 std::ostream& operator<<( std::ostream& os, const Bureaucrat& bureaucrat ) {
 
-	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+	os << YELLOW << bureaucrat.getName() << RESET
+	   << ", bureaucrat grade "
+	   << CYAN << bureaucrat.getGrade() << RESET;
 	return os;
 }
