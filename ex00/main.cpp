@@ -6,12 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:44:51 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/14 16:50:21 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:42:21 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+/*-----------------------*/
+/*  Print Error message  */
+/*-----------------------*/
 void	printError( const std::exception& e ) {
 	std::cerr << RED << e.what() << RESET << std::endl;
 }

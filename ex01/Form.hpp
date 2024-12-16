@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:43:04 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/14 17:02:35 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:44:08 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,14 @@
 #include <string>
 #include <stdexcept>
 
+/*----------------------------*/
+/*  Include Bureaucrat class  */
+/*----------------------------*/
 class Bureaucrat;
 
+/*---------------------*/
+/*  Define Form class  */
+/*---------------------*/
 class	Form {
 
 private:
@@ -57,6 +63,9 @@ public:
 
 };
 
+/*------------------------------------------*/
+/*  Overload of the insertion («) operator  */
+/*------------------------------------------*/
 std::ostream& operator<<( std::ostream& os, const Form& form );
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:12:36 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/14 17:46:01 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:51:28 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,6 @@ void	Bureaucrat::decrementGrade( void ) {
 	_grade++;
 }
 
-/*----------------------------------------------------*/
-/*  Define overloading of the insertion («) operator  */
-/*----------------------------------------------------*/
-std::ostream& operator<<( std::ostream& os, const Bureaucrat& bureaucrat ) {
-
-	os << YELLOW << bureaucrat.getName() << RESET
-	   << ", bureaucrat grade "
-	   << CYAN << bureaucrat.getGrade() << RESET;
-	return os;
-}
-
 /*----------------------------*/
 /*  Define signForm function  */
 /*----------------------------*/
@@ -118,4 +107,16 @@ void	Bureaucrat::signForm( Form& form ) const {
 				  << RED << e.what() << RESET
 				  << std::endl;
 	}
+}
+
+/*----------------------------------------------------*/
+/*  Define overloading of the insertion («) operator  */
+/*----------------------------------------------------*/
+std::ostream& operator<<( std::ostream& os, const Bureaucrat& bureaucrat ) {
+
+	os << YELLOW << bureaucrat.getName() << RESET
+	   << ", bureaucrat grade "
+	   << CYAN << bureaucrat.getGrade() << RESET;
+
+	return os;
 }
