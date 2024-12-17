@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:43:04 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/16 14:44:08 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/17 11:57:03 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define FORM_HPP
 
 #include <string>
-#include <stdexcept>
+#include <iostream>
+#include <exception>
 
 /*----------------------------*/
 /*  Include Bureaucrat class  */
@@ -24,7 +25,7 @@ class Bureaucrat;
 /*---------------------*/
 /*  Define Form class  */
 /*---------------------*/
-class	Form {
+class	AForm {
 
 private:
 
@@ -33,26 +34,34 @@ private:
 	const int			_gradeToSign;
 	const int			_gradeToExecute;
 
+protected:
+
+	virtual void		executeAction( void ) const = 0;
+
 public:
 
 	class	GradeTooHighException : public std::exception {
-	public:
 		const char*	what() const noexcept override {
 			return "Grade is too high!";
 		}
 	};
 
 	class	GradeTooLowException : public std::exception {
-	public:
 		const char*	what() const noexcept override {
 			return "Grade is too low!";
 		}
 	};
 
-	Form( const std::string& name, int gradeToSign, int gradeToExecute );
-	Form( const Form& other );
-	Form&	operator=( const Form& other );
-	~Form( void );
+	class	FormNotSignedException : public std::exception {
+		const char* what() const noexcept override {
+			return "Form is not signed!";
+		}
+	};
+
+	AForm( const std::string& name, int gradeToSign, int gradeToExecute );
+	AForm( const AForm& other );
+	AForm&	operator=( const AForm& other );
+	~AForm( void );
 
 	const std::string&	getName( void ) const;
 	bool				getIsSigned( void ) const;
@@ -60,12 +69,13 @@ public:
 	int					getGradeToExecute( void ) const;
 
 	void				beSigned( const Bureaucrat& bureaucrat );
+	void				execute( const Bureaucrat& executor ) const;
 
 };
 
 /*------------------------------------------*/
 /*  Overload of the insertion («) operator  */
 /*------------------------------------------*/
-std::ostream& operator<<( std::ostream& os, const Form& form );
+std::ostream& operator<<( std::ostream& os, const AForm& form );
 
 #endif

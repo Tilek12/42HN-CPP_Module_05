@@ -7,7 +7,10 @@ RESET	= \033[0m
 NAME = bureaucrat
 SRC =	main.cpp \
 		Bureaucrat.cpp \
-		Form.cpp
+		AForm.cpp \
+		ShrubberyCreationForm.hpp \
+		RobotomyRequestForm.hpp \
+		PresidentialPardonForm.hpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++17
