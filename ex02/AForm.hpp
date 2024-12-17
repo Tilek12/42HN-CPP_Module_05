@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:43:04 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/17 11:57:03 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/17 12:09:28 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ private:
 
 protected:
 
-	virtual void		executeAction( void ) const = 0;
+	virtual void		_executeAction( void ) const = 0;
 
 public:
 
