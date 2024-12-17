@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:12:30 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/17 12:03:26 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/17 12:25:10 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 /*--------------------------*/
 /*  Form Class constructor  */
 /*--------------------------*/
-AForm::AForm( const std::string& name, int gradeToSign, int gradeToExecute ) :  _name( name ),
-																				_isSigned( false ),
-																				_gradeToSign( gradeToSign ),
-																				_gradeToExecute( gradeToExecute) {
-
+AForm::AForm( const std::string& name, int gradeToSign, int gradeToExecute )
+	: _name( name ),
+	  _isSigned( false ),
+	  _gradeToSign( gradeToSign ),
+	  _gradeToExecute( gradeToExecute) {
 
 	if ( _gradeToSign < 1 || _gradeToExecute < 1 )
 		throw GradeTooHighException();
@@ -95,7 +95,7 @@ void	AForm::execute( const Bureaucrat& executor ) const {
 	if ( executor.getGrade() > _gradeToExecute )
 		throw GradeTooLowException();
 
-	executeAction();
+	_executeAction();
 }
 
 /*----------------------------------------------------*/
