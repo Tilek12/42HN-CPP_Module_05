@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:32:22 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/17 12:37:16 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:12:53 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
+#include <cstdlib>
 
 class	RobotomyRequestForm : public AForm {
 
