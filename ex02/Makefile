@@ -8,9 +8,9 @@ NAME = bureaucrat
 SRC =	main.cpp \
 		Bureaucrat.cpp \
 		AForm.cpp \
-		ShrubberyCreationForm.hpp \
-		RobotomyRequestForm.hpp \
-		PresidentialPardonForm.hpp
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++17

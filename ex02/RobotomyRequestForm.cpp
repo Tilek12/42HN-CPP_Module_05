@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:38:28 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/17 15:50:13 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/18 08:58:52 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ RobotomyRequestForm::~RobotomyRequestForm( void ) {}
 
 void	RobotomyRequestForm::_executeAction( void ) const {
 
-	std::cout << "* Drilling noses *\n";
+	std::cout << B_BLUE << "* Drilling noises *\n" << RESET;
 
 	if ( rand() % 2 )
-		std::cout << _target << " has been robotomized successfully!\n";
+		std::cout << BLUE << _target << RESET
+				  << GREEN << " has been robotomized successfully!\n" << RESET;
 	else
-		std::cout << "Robotomy failed for " << _target << std::endl;
+		std::cout << PURPLE << "Robotomy failed for " << RESET
+				  << BLUE << _target << RESET << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:12:36 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/16 14:51:28 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/18 08:29:41 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat& other ) : _name( other._name ),
 Bureaucrat&	Bureaucrat::operator=( const Bureaucrat& other ) {
 
 	if ( this != &other ) {
-		const_cast<std::string&>( _name ) = other._name;
+		// const_cast<std::string&>( _name ) = other._name;
 		_grade = other._grade;
 	}
 
@@ -83,7 +83,7 @@ void	Bureaucrat::decrementGrade( void ) {
 /*----------------------------*/
 /*  Define signForm function  */
 /*----------------------------*/
-void	Bureaucrat::signForm( Form& form ) const {
+void	Bureaucrat::signForm( AForm& form ) const {
 
 	if ( form.getIsSigned() ) {
 		std::cout << PURPLE
@@ -98,10 +98,27 @@ void	Bureaucrat::signForm( Form& form ) const {
 				  << GREEN << " signed " << RESET
 				  << BLUE << form.getName() << RESET
 				  << std::endl;
-	}
-	catch(const std::exception& e) {
+	} catch(const std::exception& e) {
 		std::cout << YELLOW << _name << RESET
 				  << PURPLE << " couldn't sign " << RESET
+				  << BLUE << form.getName() << RESET
+				  << " because "
+				  << RED << e.what() << RESET
+				  << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm( AForm const& form ) const {
+
+	try {
+		form.execute( *this );
+		std::cout << YELLOW << _name << RESET
+				  << GREEN << " executed " << RESET
+				  << BLUE << form.getName() << RESET
+				  << std::endl;
+	} catch ( const std::exception &e ) {
+		std::cout << YELLOW << _name << RESET
+				  << PURPLE << " couldn't execute " << RESET
 				  << BLUE << form.getName() << RESET
 				  << " because "
 				  << RED << e.what() << RESET

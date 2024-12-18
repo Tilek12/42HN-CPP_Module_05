@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:02:07 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/17 16:07:43 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/18 08:52:33 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=( const PresidentialPar
 PresidentialPardonForm::~PresidentialPardonForm( void ) {}
 
 void	PresidentialPardonForm::_executeAction( void ) const {
-	std::cout << _target << " has been pardoned by Zaphod Beeblebrox.\n";
+	std::cout << BLUE << _target << RESET
+			  << " has been pardoned by Zaphod Beeblebrox.\n";
 }
