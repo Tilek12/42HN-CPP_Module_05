@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:12:36 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/18 08:29:41 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/18 09:15:38 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,9 @@ void	Bureaucrat::signForm( AForm& form ) const {
 	}
 }
 
+/*-------------------------------*/
+/*  Define executeForm function  */
+/*-------------------------------*/
 void	Bureaucrat::executeForm( AForm const& form ) const {
 
 	try {

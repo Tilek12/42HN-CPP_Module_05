@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:51:37 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/18 07:30:22 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/18 09:16:31 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 #include <stdexcept>
 #include "AForm.hpp"
 
-class	Aform;
+/*----------------------------*/
+/*  Include AForm class  */
+/*----------------------------*/
+class	AForm;
 
 /*---------------------------*/
 /*  Define Bureaucrat class  */
@@ -33,6 +36,18 @@ private:
 
 public:
 
+	Bureaucrat( const std::string& name, int grade );
+	Bureaucrat( const Bureaucrat& other );
+	Bureaucrat& operator=( const Bureaucrat& other );
+	~Bureaucrat( void );
+
+	const std::string&	getName( void ) const;
+	int					getGrade( void ) const;
+	void				incrementGrade( void );
+	void				decrementGrade( void );
+	void				signForm( AForm& form ) const;
+	void				executeForm( AForm const& form ) const;
+
 	class	GradeTooHighException : public std::exception {
 	public:
 		const char*	what() const noexcept override {
@@ -46,18 +61,6 @@ public:
 			return "Grade is too low!";
 		}
 	};
-
-	Bureaucrat( const std::string& name, int grade );
-	Bureaucrat( const Bureaucrat& other );
-	Bureaucrat& operator=( const Bureaucrat& other );
-	~Bureaucrat( void );
-
-	const std::string&	getName( void ) const;
-	int					getGrade( void ) const;
-	void				incrementGrade( void );
-	void				decrementGrade( void );
-	void				signForm( AForm& form ) const;
-	void				executeForm( AForm const& form ) const;
 
 };
 

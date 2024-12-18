@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:53:49 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/17 16:00:40 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/18 09:17:38 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include "AForm.hpp"
 
+/*---------------------------------------*/
+/*  Define PresidentialPardonForm class  */
+/*---------------------------------------*/
 class	PresidentialPardonForm : public AForm {
 
 private:

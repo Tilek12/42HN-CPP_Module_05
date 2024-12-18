@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:06:22 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/17 12:27:42 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/18 09:23:11 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include "AForm.hpp"
 #include <fstream>
 
+/*--------------------------------------*/
+/*  Define ShrubberyCreationForm class  */
+/*--------------------------------------*/
 class	ShrubberyCreationForm : public AForm {
 
 private:

@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:43:04 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/18 07:30:17 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/18 09:14:33 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,19 @@ protected:
 
 public:
 
+	AForm( const std::string& name, int gradeToSign, int gradeToExecute );
+	AForm( const AForm& other );
+	AForm&	operator=( const AForm& other );
+	~AForm( void );
+
+	const std::string&	getName( void ) const;
+	bool				getIsSigned( void ) const;
+	int					getGradeToSign( void ) const;
+	int					getGradeToExecute( void ) const;
+
+	void				beSigned( const Bureaucrat& bureaucrat );
+	void				execute( const Bureaucrat& executor ) const;
+
 	class	GradeTooHighException : public std::exception {
 		const char*	what() const noexcept override {
 			return "Grade is too high!";
@@ -83,19 +96,6 @@ public:
 			return "Form is not signed!";
 		}
 	};
-
-	AForm( const std::string& name, int gradeToSign, int gradeToExecute );
-	AForm( const AForm& other );
-	AForm&	operator=( const AForm& other );
-	~AForm( void );
-
-	const std::string&	getName( void ) const;
-	bool				getIsSigned( void ) const;
-	int					getGradeToSign( void ) const;
-	int					getGradeToExecute( void ) const;
-
-	void				beSigned( const Bureaucrat& bureaucrat );
-	void				execute( const Bureaucrat& executor ) const;
 
 };
 
