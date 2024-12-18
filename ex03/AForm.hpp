@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:43:04 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/18 09:14:33 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/18 10:51:10 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ public:
 	AForm( const std::string& name, int gradeToSign, int gradeToExecute );
 	AForm( const AForm& other );
 	AForm&	operator=( const AForm& other );
-	~AForm( void );
+	virtual ~AForm( void );
 
 	const std::string&	getName( void ) const;
 	bool				getIsSigned( void ) const;
