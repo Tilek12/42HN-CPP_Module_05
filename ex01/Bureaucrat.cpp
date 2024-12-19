@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:12:36 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/16 14:51:28 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/19 19:24:39 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ Bureaucrat::Bureaucrat( const Bureaucrat& other ) : _name( other._name ),
 Bureaucrat&	Bureaucrat::operator=( const Bureaucrat& other ) {
 
 	if ( this != &other ) {
-		const_cast<std::string&>( _name ) = other._name;
 		_grade = other._grade;
 	}
 

@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:51:37 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/14 16:40:24 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:25:09 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <string>
 #include <iostream>
-#include <stdexcept>
+#include <exception>
 
 /*---------------*/
 /*  Text colors  */

@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:43:04 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/18 10:51:12 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:40:45 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,27 @@ protected:
 
 public:
 
+	class	GradeTooHighException : public std::exception {
+	public:
+		const char*	what() const noexcept override {
+			return "Grade is too high!";
+		}
+	};
+
+	class	GradeTooLowException : public std::exception {
+	public:
+		const char*	what() const noexcept override {
+			return "Grade is too low!";
+		}
+	};
+
+	class	FormNotSignedException : public std::exception {
+	public:
+		const char* what() const noexcept override {
+			return "Form is not signed!";
+		}
+	};
+
 	AForm( const std::string& name, int gradeToSign, int gradeToExecute );
 	AForm( const AForm& other );
 	AForm&	operator=( const AForm& other );
@@ -78,24 +99,6 @@ public:
 
 	void				beSigned( const Bureaucrat& bureaucrat );
 	void				execute( const Bureaucrat& executor ) const;
-
-	class	GradeTooHighException : public std::exception {
-		const char*	what() const noexcept override {
-			return "Grade is too high!";
-		}
-	};
-
-	class	GradeTooLowException : public std::exception {
-		const char*	what() const noexcept override {
-			return "Grade is too low!";
-		}
-	};
-
-	class	FormNotSignedException : public std::exception {
-		const char* what() const noexcept override {
-			return "Form is not signed!";
-		}
-	};
 
 };
 

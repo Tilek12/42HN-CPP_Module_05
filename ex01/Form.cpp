@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:12:30 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/16 14:51:07 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:41:33 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 /*--------------------------*/
 /*  Form Class constructor  */
 /*--------------------------*/
-Form::Form( const std::string& name, int gradeToSign, int gradeToExecute ) : _name( name ),
-																			 _isSigned( false ),
-																			 _gradeToSign( gradeToSign ),
-																			 _gradeToExecute( gradeToExecute) {
-
+Form::Form( const std::string& name, int gradeToSign, int gradeToExecute )
+	: _name( name ),
+	  _isSigned( false ),
+	  _gradeToSign( gradeToSign ),
+	  _gradeToExecute( gradeToExecute) {
 
 	if ( _gradeToSign < 1 || _gradeToExecute < 1 )
 		throw GradeTooHighException();
-	else if ( _gradeToSign > 150 || gradeToExecute > 150 )
+	else if ( _gradeToSign > 150 || _gradeToExecute > 150 )
 		throw GradeTooLowException();
 }
 

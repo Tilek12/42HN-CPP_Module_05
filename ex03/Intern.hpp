@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 09:42:06 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/19 10:43:32 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:05:35 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+/*-----------------------*/
+/*  Define Intern class  */
+/*-----------------------*/
 class	Intern {
 
 private:

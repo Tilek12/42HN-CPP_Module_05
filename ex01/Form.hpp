@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:43:04 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/16 14:44:08 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:34:05 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define FORM_HPP
 
 #include <string>
-#include <stdexcept>
+#include <exception>
 
 /*----------------------------*/
 /*  Include Bureaucrat class  */
@@ -58,7 +58,6 @@ public:
 	bool				getIsSigned( void ) const;
 	int					getGradeToSign( void ) const;
 	int					getGradeToExecute( void ) const;
-
 	void				beSigned( const Bureaucrat& bureaucrat );
 
 };

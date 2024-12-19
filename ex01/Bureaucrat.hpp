@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:51:37 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/12/14 16:52:36 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:29:36 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <string>
 #include <iostream>
-#include <stdexcept>
+#include <exception>
 #include "Form.hpp"
 
 /*---------------*/
