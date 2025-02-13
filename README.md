@@ -74,7 +74,7 @@ Then, let’s make a **Form** class. It has:
 - A boolean indicating whether it is signed (at construction, it’s not).
 - A constant grade required to sign it.
 - And a constant grade required to execute it.
-- 
+
 All these attributes are **private**, not protected.
 
 The grades of the **Form** follow the same rules that apply to the Bureaucrat. Thus, the following exceptions will be thrown if a form grade is out of bounds: 
@@ -97,147 +97,75 @@ Implement and turn in some tests to ensure everything works as expected.
 
 --------------------------------------------
 
-## :green_circle: **Exercise 02: Abstract class**
+## :green_circle: **Exercise 02: No, you need form 28B, not 28C...**
 
 **Turn-in directory :**   | ex02/
 |:---|:---|
-**Files to turn in :**    | Files from previous exercise + *.cpp, *.{h, hpp}
+**Files to turn in :**    | Makefile, main.cpp, Bureaucrat.[{h, hpp},cpp],
+|| Bureaucrat.cpp +
+|| AForm.[{h, hpp},cpp], ShrubberyCreationForm.[{h, hpp},cpp], +
+|| RobotomyRequestForm.[{h, hpp},cpp], PresidentialPardonForm.[{h, hpp},cpp]
 **Forbidden functions :** | None
 
-Creating Animal objects doesn’t make sense after all. It’s true, they make no sound!
+Since you now have basic forms, it’s time to make a few more that actually do something.
+In all cases, the base class Form must be an abstract class, and therefore should be renamed AForm. 
+Keep in mind the form’s attributes need to remain private and that they are in the base class.
 
-To avoid any possible mistakes, the default Animal class should not be instantiable. 
-Fix the Animal class so nobody can instantiate it. Everything should work as before.
+Add the following concrete classes:
+- **ShrubberyCreationForm**: Required grades: sign 145, exec 137
 
-If you want to, you can update the class name by adding a A prefix to Animal.
+Create a file **\<target>_shrubbery** in the working directory, and writes ASCII trees inside it.
+
+- **RobotomyRequestForm**: Required grades: sign 72, exec 45
+
+Makes some drilling noises. Then, informs that **\<target>** has been robotomized successfully 50% of the time. Otherwise, informs that the robotomy failed.
+
+- **PresidentialPardonForm**: Required grades: sign 25, exec 5 Informs that **\<target>** has been pardoned by Zaphod Beeblebrox.
+
+All of them take only one parameter in their constructor: the target of the form. For example, "home" if you want to plant shrubbery at home.
+
+Now, add the **execute(Bureaucrat const & executor) const** member function to the base form and implement a function to execute the form’s action of the concrete classes. You have to check that the form is signed and that the grade of the bureaucrat attempting to execute the form is high enough. Otherwise, throw an appropriate exception.
+
+Whether you want to check the requirements in every concrete class or in the base class (then call another function to execute the form) is up to you. However, one way is prettier than the other one.
+
+Lastly, add the **executeForm(AForm const & form)** member function to the Bureaucrat. It must attempt to execute the form. If it’s successful, print something like:
+
+   **\<bureaucrat> executed \<form>**
+   
+If not, print an explicit error message.
+
+Implement and turn in some tests to ensure everything works as expected.
 
 --------------------------------------------
 
-## :star: **Exercise 03: Interface & recap**
+## :green_circle: **Exercise 03: At least this beats coffee-making**
 
 **Turn-in directory :**   | ex03/
 |:---|:---|
-**Files to turn in :**    | Makefile, main.cpp, *.cpp, *.{h, hpp}
+**Files to turn in :**    | Files from previous exercises + Intern.{h, hpp}, Intern.cpp
 **Forbidden functions :** | None
 
-Interfaces don’t exist in C++98 (not even in C++20). However, pure abstract classes are commonly called interfaces. 
-Thus, in this last exercise, let’s try to implement interfaces in order to make sure you got this module.
+Because filling out forms is annoying enough, it would be cruel to ask our bureaucrats to do this all day long. Fortunately, interns exist. In this exercise, you have to implement the **Intern** class. The intern has no name, no grade, no unique characteristics. The only thing the bureaucrats care about is that they do their job.
 
-Complete the definition of the following AMateria class and implement the necessary member functions.
+However, the intern has one important capacity: the **makeForm()** function. It takes two strings. The first one is the name of a form and the second one is the target of the form. It return a pointer to a **Form object** (whose name is the one passed as parameter) whose target will be initialized to the second parameter.
+
+It will print something like:
+
+   **Intern creates \<form>**
+   
+If the form name passed as parameter doesn’t exist, print an explicit error message.
+
+You must avoid unreadable and ugly solutions like using a if/elseif/else forest. This kind of things won’t be accepted during the evaluation process. You’re not in Piscine (pool) anymore. As usual, you have to test that everything works as expected.
+
+For example, the code below creates a **RobotomyRequestForm** targeted on "Bender":
 
 ```
-class AMateria
 {
-    protected:
-          [...]
-    public:
-          AMateria(std::string const & type);
-          [...]
-
-          std::string const & getType() const; //Returns the materia type
-
-          virtual AMateria* clone() const = 0;
-          virtual void use(ICharacter& target);
-};
-```
-
-Implement the Materias concrete classes **Ice** and **Cure**. Use their name in lowercase 
-("ice" for Ice, "cure" for Cure) to set their types. Of course, their member function clone() will return 
-a new instance of the same type (i.e., if you clone an Ice Materia, you will get a new Ice Materia).
-
-The use(ICharacter&) member function will display: 
-- Ice: "* shoots an ice bolt at <name> *"
-- Cure: "* heals <name>’s wounds *"
-
-  \<name\> is the name of the Character passed as parameter. Don’t print the angle
-brackets (\< and \>).
-
-**:bulb: `While assigning a Materia to another, copying the type doesn’t make sense.`**
-
-Write the concrete class Character which will implement the following interface:
-```
-class ICharacter
-{
-    public:
-          virtual ~ICharacter() {}
-          virtual std::string const & getName() const = 0; virtual void equip(AMateria* m) = 0;
-          virtual void unequip(int idx) = 0;
-          virtual void use(int idx, ICharacter& target) = 0;
-};
-```
-
-The **Character** possesses an inventory of 4 slots, which means 4 Materias at most. 
-The inventory is empty at construction. They equip the Materias in the first empty slot they find. 
-This means, in this order: from slot 0 to slot 3. In case they try to add a Materia to a full inventory, 
-or use/unequip an unexisting Materia, don’t do anything (but still, bugs are forbidden). 
-The unequip() member function must NOT delete the Materia!
-
-**:bulb: `Handle the Materias your character left on the floor as you like. 
-Save the addresses before calling unequip(), or anything else, but don’t forget that you have to avoid memory leaks.`**
-
-The use(int, ICharacter&) member function will have to use the Materia at the slot[idx], 
-and pass the target parameter to the AMateria::use function.
-
-**:warning: `Your character’s inventory will be able to support any type of AMateria.`**
-
-Your **Character** must have a constructor taking its name as a parameter. 
-Any copy (using copy constructor or copy assignment operator) of a Character must be **deep**. 
-During copy, the Materias of a Character must be deleted before the new ones are added to their inventory. 
-Of course, the Materias must be deleted when a Character is destroyed.
-
-Write the concrete class **MateriaSource** which will implement the following interface:
-```
-class IMateriaSource
-{
-    public:
-          virtual ~IMateriaSource() {}
-          virtual void learnMateria(AMateria*) = 0;
-          virtual AMateria* createMateria(std::string const & type) = 0;
-};
-```
-
-- **learnMateria(AMateria\*)**
-Copies the Materia passed as a parameter and store it in memory so it can be cloned later.
-Like the Character, the **MateriaSource** can know at most 4 Materias. They are not necessarily unique.
-
-- **createMateria(std::string const &)**
-Returns a new Materia. The latter is a copy of the Materia previously learned by the MateriaSource
-whose type equals the one passed as parameter. Returns 0 if the type is unknown.
-
-In a nutshell, your **MateriaSource** must be able to learn "templates" of Materias to create them when needed. 
-Then, you will be able to generate a new Materia using just a string that identifies its type.
-
-Running this code:
-```
-int main()
-{
-    IMateriaSource* src = new MateriaSource();
-    src->learnMateria(new Ice());
-    src->learnMateria(new Cure());
-
-    ICharacter* me = new Character("me");
-
-    AMateria* tmp;
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
-    tmp = src->createMateria("cure");
-    me->equip(tmp);
-
-    ICharacter* bob = new Character("bob");
-    me->use(0, *bob);
-    me->use(1, *bob);
-
-    delete bob;
-    delete me;
-    delete src;
-
-    return 0;
+    Intern  someRandomIntern;
+    Form*   rrf;
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender"); 
 }
 ```
 
-Should output:
-```
-$> clang++ -W -Wall -Werror *.cpp
-$> ./a.out | cat -e
-* shoots an ice bolt at bob *$ * heals bob's wounds *$
-```
+
+
